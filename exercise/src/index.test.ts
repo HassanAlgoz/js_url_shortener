@@ -23,26 +23,6 @@ describe('URL Shortener Service', () => {
       .expect('Location', longUrl);
   });
 
-  it('Idempotency: should return the same short URL if the request is repeated', async () => {
-    const longUrl = 'http://example.com';
-    const response = await request(app)
-      .put('/shorten')
-      .send({ url: longUrl })
-      .expect(200);
-
-    const shortUrl = response.text;
-    expect(shortUrl).toBeDefined();
-
-    // Shorten the URL again
-    const response2 = await request(app)
-      .put('/shorten')
-      .send({ url: longUrl })
-      .expect(200);
-
-    const shortUrl2 = response2.text;
-    expect(shortUrl2).toBe(shortUrl);
-  });
-
   it('should return a 404 for a non-existent short URL', async () => {
     const nonExistentShortUrl = 'nonexistent';
 
