@@ -1,6 +1,9 @@
 # Activity: URL Shortener
 
-**Don't open the solution folder until you have completed the exercise.**
+Please heed the following to get the most out of this exercise:
+
+- Do not open the solution folder until you have completed the exercise.
+- Copy the exercise folder into a new git repo (locally) and work on it there. That way you can avoid the temptation to open the solution folder, and not have the AI (if any) assist you in peeking at the actual solution.
 
 ## Problem Statement
 
