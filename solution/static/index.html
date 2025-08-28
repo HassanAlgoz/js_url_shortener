@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple URL Shortener</title>
+    <!-- We're using Tailwind CSS for some quick and easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- The main application card/container -->
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-xl text-center">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">URL Shortener</h1>
+        <p class="text-gray-500 mb-6">Create short links to share with ease.</p>
+
+        <!-- The form to submit a URL -->
+        <form id="urlForm" class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 mb-6">
+            <input type="url" id="longUrlInput" placeholder="Enter a long URL here" required name="url"
+                   class="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+            <button type="submit"
+                    class="w-full md:w-auto px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+                Shorten!
+            </button>
+        </form>
+
+        <!-- Display the shortened URL here -->
+        <div id="resultContainer" class="hidden">
+            <p class="text-gray-600 mb-2">Your shortened URL is:</p>
+            <div class="flex items-center justify-center space-x-2">
+                <a id="shortUrlLink" href="#" target="_blank" class="text-blue-600 font-medium break-all
+                   p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 transition-all"></a>
+                <button id="copyButton" class="p-3 bg-gray-200 text-gray-700 rounded-lg shadow-sm hover:bg-gray-300 transition-colors duration-300"
+                        onclick="copyToClipboard()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                        <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h4.545c-.347-.323-.628-.686-.884-1.077l-1.464-2.197c-.378-.567-.206-1.336.417-1.638l3.75-1.875a1.25 1.25 0 01.75 0l3.75 1.875c.623.302.795 1.071.417 1.638l-1.464 2.197c-.256.391-.537.754-.884 1.077H14a2 2 0 002-2V5a2 2 0 00-2-2H6z" />
+                    </svg>
+                </button>
+            </div>
+            <p id="messageBox" class="text-sm mt-4 text-green-600"></p>
+        </div>
+    </div>
+
+    <script type="module" src="client.js"></script>
+</body>
