@@ -1,5 +1,11 @@
 # Activity: URL Shortener
 
+<center>
+
+![Figure showing the UI of the URL shortener](url_shortener_image.png)
+
+</center>
+
 Please heed the following to get the most out of this exercise:
 
 - Do not open the solution folder until you have completed the exercise.
